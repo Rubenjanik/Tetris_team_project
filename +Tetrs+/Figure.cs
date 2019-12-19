@@ -154,4 +154,59 @@ namespace _Tetrs_
             }
         }
     }
+
+
+    class _1 : baseFigure
+    {
+        public _1(Random r, StartPosition position)
+            : base(1, position)
+        {
+            L[] a = new L[4];
+
+            a[0].i = 0; a[0].j = 0;
+            a[1].i = 0; a[1].j = 1;
+            a[2].i = 0; a[2].j = 2;
+            a[3].i = 0; a[3].j = 3;
+
+            Color c = this.RandomColor(r);
+
+            this.ShangeFi(a, c);
+        }
+
+        _1(int N, Color c, FigureLocation f, StartPosition position)
+            : base(N, c, f, position)
+        {
+        }
+
+        public override baseFigure NextLocation()
+        {
+            FigureLocation l = this.lockation;
+            FigureLocation newLocation = (int)l == 3 ? FigureLocation.Up : l + 1;
+            Color c = Color.Violet;
+            for (int i = 0; i < this.fi.GetLength(0); i++)
+                for (int j = 0; j < this.fi.GetLength(1); j++)
+                    if (fi[i, j].Color != Color.White)
+                        c = fi[i, j].Color;
+            StartPosition position = this.position;
+
+            _1 bf = new _1(1, c, newLocation, position);
+            L[] a = new L[4];
+            if (l == FigureLocation.Up || l == FigureLocation.Down)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 1; a[1].j = 0;
+                a[2].i = 2; a[2].j = 0;
+                a[3].i = 3; a[3].j = 0;
+            }
+            if (l == FigureLocation.Left || l == FigureLocation.Right)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 0; a[1].j = 1;
+                a[2].i = 0; a[2].j = 2;
+                a[3].i = 0; a[3].j = 3;
+            }
+            bf.ShangeFi(a, c);
+            return bf;
+        }
+    }
 }
