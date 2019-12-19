@@ -343,4 +343,206 @@ namespace _Tetrs_
             return bf;
         }
     }
+
+    class _5 : baseFigure
+    {
+        public _5(Random r, StartPosition position)
+            : base(5, position)
+        {
+            L[] a = new L[4];
+            a[0].i = 0; a[0].j = 0;
+            a[1].i = 0; a[1].j = 1;
+            a[2].i = 0; a[2].j = 2;
+            a[3].i = 1; a[3].j = 2;
+
+            Color c = this.RandomColor(r);
+
+            this.ShangeFi(a, c);
+        }
+
+        _5(int N, Color c, FigureLocation f, StartPosition position)
+            : base(N, c, f, position)
+        {
+        }
+
+        public override baseFigure NextLocation()
+        {
+            FigureLocation l = this.lockation;
+            FigureLocation newLocation = (int)l == 3 ? FigureLocation.Up : l + 1;
+            Color c = Color.Violet;
+            for (int i = 0; i < this.fi.GetLength(0); i++)
+                for (int j = 0; j < this.fi.GetLength(1); j++)
+                    if (fi[i, j].Color != Color.White)
+                        c = fi[i, j].Color;
+            StartPosition position = this.position;
+
+            _5 bf = new _5(5, c, newLocation, position);
+            L[] a = new L[4];
+            if (l == FigureLocation.Up)
+            {
+                a[0].i = 2; a[0].j = 0;
+                a[1].i = 1; a[1].j = 0;
+                a[2].i = 0; a[2].j = 0;
+                a[3].i = 0; a[3].j = 1;
+            }
+            if (l == FigureLocation.Right)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 1; a[1].j = 0;
+                a[2].i = 1; a[2].j = 1;
+                a[3].i = 1; a[3].j = 2;
+            }
+            if (l == FigureLocation.Down)
+            {
+                a[0].i = 0; a[0].j = 1;
+                a[1].i = 1; a[1].j = 1;
+                a[2].i = 2; a[2].j = 1;
+                a[3].i = 2; a[3].j = 0;
+            }
+            if (l == FigureLocation.Left)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 0; a[1].j = 1;
+                a[2].i = 0; a[2].j = 2;
+                a[3].i = 1; a[3].j = 2;
+            }
+            bf.ShangeFi(a, c);
+            return bf;
+        }
+    }
+
+    class _6 : baseFigure
+    {
+        public _6(Random r, StartPosition position)
+            : base(6, position)
+        {
+            L[] a = new L[4];
+            a[0].i = 0; a[0].j = 2;
+            a[1].i = 1; a[1].j = 2;
+            a[2].i = 1; a[2].j = 1;
+            a[3].i = 1; a[3].j = 0;
+
+            Color c = this.RandomColor(r);
+
+            this.ShangeFi(a, c);
+        }
+
+        _6(int N, Color c, FigureLocation f, StartPosition position)
+            : base(N, c, f, position)
+        {
+        }
+
+        public override baseFigure NextLocation()
+        {
+            FigureLocation l = this.lockation;
+            FigureLocation newLocation = (int)l == 3 ? FigureLocation.Up : l + 1;
+            Color c = Color.Violet;
+            for (int i = 0; i < this.fi.GetLength(0); i++)
+                for (int j = 0; j < this.fi.GetLength(1); j++)
+                    if (fi[i, j].Color != Color.White)
+                        c = fi[i, j].Color;
+            StartPosition position = this.position;
+
+            _6 bf = new _6(6, c, newLocation, position);
+            L[] a = new L[4];
+            if (l == FigureLocation.Up)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 0; a[1].j = 1;
+                a[2].i = 1; a[2].j = 1;
+                a[3].i = 2; a[3].j = 1;
+
+            }
+            if (l == FigureLocation.Right)
+            {
+                a[0].i = 1; a[0].j = 0;
+                a[1].i = 0; a[1].j = 0;
+                a[2].i = 0; a[2].j = 1;
+                a[3].i = 0; a[3].j = 2;
+            }
+            if (l == FigureLocation.Down)
+            {
+                a[0].i = 2; a[0].j = 1;
+                a[1].i = 2; a[1].j = 0;
+                a[2].i = 1; a[2].j = 0;
+                a[3].i = 0; a[3].j = 0;
+            }
+            if (l == FigureLocation.Left)
+            {
+                a[0].i = 0; a[0].j = 2;
+                a[1].i = 1; a[1].j = 2;
+                a[2].i = 1; a[2].j = 1;
+                a[3].i = 1; a[3].j = 0;
+            }
+            bf.ShangeFi(a, c);
+            return bf;
+        }
+    }
+
+    class _7 : baseFigure
+    {
+        public _7(Random r, StartPosition position)
+            : base(7, position)
+        {
+            L[] a = new L[4];
+            a[0].i = 0; a[0].j = 0;
+            a[1].i = 0; a[1].j = 1;
+            a[2].i = 0; a[2].j = 2;
+            a[3].i = 1; a[3].j = 1;
+
+            Color c = this.RandomColor(r);
+
+            this.ShangeFi(a, c);
+        }
+
+        _7(int N, Color c, FigureLocation f, StartPosition position)
+            : base(N, c, f, position)
+        {
+        }
+
+        public override baseFigure NextLocation()
+        {
+            FigureLocation l = this.lockation;
+            FigureLocation newLocation = (int)l == 3 ? FigureLocation.Up : l + 1;
+            Color c = Color.Violet;
+            for (int i = 0; i < this.fi.GetLength(0); i++)
+                for (int j = 0; j < this.fi.GetLength(1); j++)
+                    if (fi[i, j].Color != Color.White)
+                        c = fi[i, j].Color;
+            StartPosition position = this.position;
+
+            _7 bf = new _7(7, c, newLocation, position);
+            L[] a = new L[4];
+            if (l == FigureLocation.Up)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 1; a[1].j = 0;
+                a[2].i = 2; a[2].j = 0;
+                a[3].i = 1; a[3].j = 1;
+            }
+            if (l == FigureLocation.Right)
+            {
+                a[0].i = 1; a[0].j = 0;
+                a[1].i = 1; a[1].j = 1;
+                a[2].i = 1; a[2].j = 2;
+                a[3].i = 0; a[3].j = 1;
+            }
+            if (l == FigureLocation.Down)
+            {
+                a[0].i = 0; a[0].j = 1;
+                a[1].i = 1; a[1].j = 1;
+                a[2].i = 2; a[2].j = 1;
+                a[3].i = 1; a[3].j = 0;
+            }
+            if (l == FigureLocation.Left)
+            {
+                a[0].i = 0; a[0].j = 0;
+                a[1].i = 0; a[1].j = 1;
+                a[2].i = 0; a[2].j = 2;
+                a[3].i = 1; a[3].j = 1;
+            }
+            bf.ShangeFi(a, c);
+            return bf;
+        }
+    }
 }
