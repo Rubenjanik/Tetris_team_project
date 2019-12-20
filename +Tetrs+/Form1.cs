@@ -1186,5 +1186,207 @@ namespace _Tetrs_
             if (con)
                 f.PositionI++;
         }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int p = points % 3000;
+            int o = points - p;
+            level = BaseLVL + o / 3000;
+
+            try
+            {
+                timer1.Interval = 1000 - level * 100;
+            }
+            catch
+            {
+                timer1.Interval = 100;
+            }
+
+            if (ifod)
+            {
+                if (MoveDown())
+                {
+                    for (int i = 0; i < f.Fi.GetLength(0); i++)
+                        for (int j = 0; j < f.Fi.GetLength(1); j++)
+                            if (f.Fi[i, j].Flag)
+                                desk[f.Position.I + i, f.Position.J + j] = f.Fi[i, j];
+                    points -= (level + 1);
+                }
+                else
+                {
+                    ifod = false;
+                    if (!MoveDown(1))
+                    {
+                        points += f.Position.J * (level + 1);
+                        int deletedlines = DeleteLine();
+                        lines += deletedlines;
+                        points += Convert.ToInt32(10 * Math.Pow(deletedlines, 2)) * (level + 1);
+                    }
+                    else return;
+                }
+            }
+            if (!ifod)
+            {
+                f = fNext;
+                if (CanCreate())
+                {
+                    ProcessGame = true;
+                    ifod = true;
+                }
+                else ProcessGame = false;
+                for (int i = 0; i < f.Fi.GetLength(0); i++)
+                    for (int j = 0; j < f.Fi.GetLength(1); j++)
+                        if (f.Fi[i, j].Flag)
+                            desk[i + f.Position.I, j + f.Position.J] = f.Fi[i, j];
+                if (ProcessGame)
+                {
+                    StartPosition positionFNext;
+                    positionFNext.I = 4;
+                    positionFNext.J = 0;
+
+                    switch (rnd.Next(1, 8))
+                    {
+                        case 1: fNext = new _1(rnd, positionFNext); break;
+                        case 2: fNext = new _2(rnd, positionFNext); break;
+                        case 3: fNext = new _3(rnd, positionFNext); break;
+                        case 4: fNext = new _4(rnd, positionFNext); break;
+                        case 5: fNext = new _5(rnd, positionFNext); break;
+                        case 6: fNext = new _6(rnd, positionFNext); break;
+                        case 7: fNext = new _7(rnd, positionFNext); break;
+                    }
+                }
+                else
+                {
+                    timer1.Stop();
+                    pictureBox1.Invalidate();
+                    pictureBox2.Invalidate();
+                    WriteRecords();
+                    MessageBox.Show("Игра окончена со счетом " + Convert.ToString(points) + ", на уровне " + Convert.ToString(level) + ", после удаления " + Convert.ToString(lines) + " строк(-и)", "Игра окончена");
+                    GetRecords();
+                }
+            }
+
+            _lines.Text = Convert.ToString(lines);
+            _points.Text = Convert.ToString(points);
+            _level.Text = Convert.ToString(level);
+
+            pictureBox1.Invalidate();
+            pictureBox2.Invalidate();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetRecords();
+            if (!ProcessGame)
+            {
+                lines = 0;
+                points = 0;
+                BaseLVL = Convert.ToInt32(numericUpDown1.Value);
+                level = BaseLVL;
+
+                ProcessGame = true;
+                for (int i = 0; i < desk.GetLength(0); i++)
+                    for (int j = 0; j < desk.GetLength(1); j++)
+                        desk[i, j] = Square.Empty;
+
+                ifod = false;
+
+                StartPosition positionFNext;
+
+                positionFNext.I = 4;
+                positionFNext.J = 0;
+
+                switch (rnd.Next(1, 8))
+                {
+                    case 1: fNext = new _1(rnd, positionFNext); break;
+                    case 2: fNext = new _2(rnd, positionFNext); break;
+                    case 3: fNext = new _3(rnd, positionFNext); break;
+                    case 4: fNext = new _4(rnd, positionFNext); break;
+                    case 5: fNext = new _5(rnd, positionFNext); break;
+                    case 6: fNext = new _6(rnd, positionFNext); break;
+                    case 7: fNext = new _7(rnd, positionFNext); break;
+                }
+
+                timer1.Start();
+                timer1_Tick(sender, e);
+            }
+        }
+
+        /// <summary>
+        /// Обработчик клавиши
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (ProcessGame)
+            {
+                if (keyData == Keys.Down)
+                    MoveDown();
+                if (keyData == Keys.Up)
+                    Turn();
+                if (keyData == Keys.Left)
+                    MoveLeft();
+                if (keyData == Keys.Right)
+                    MoveRight();
+                if (keyData == Keys.Y)
+                {
+                    KeyY();
+                    MessageBox.Show("Игра временно приостановлена", "Временная приостановка игры");
+                    KeyY();
+                    return base.ProcessCmdKey(ref msg, keyData);
+                }
+                if (keyData == Keys.Escape)
+                {
+                    if (ProcessGame)
+                    {
+                        ProcessGame = false;
+                        ifod = false;
+                        timer1.Stop();
+                        WriteRecords();
+                        MessageBox.Show("Игра окончена со счетом " + Convert.ToString(points) + ", на уровне " + Convert.ToString(level) + ", после удаления " + Convert.ToString(lines) + " строк(-и)", "Игра окончена по Вашей инициативе");
+                        GetRecords();
+                    }
+                    else return base.ProcessCmdKey(ref msg, keyData);
+                }
+
+                for (int i = 0; i < f.Fi.GetLength(0); i++)
+                {
+                    for (int j = 0; j < f.Fi.GetLength(1); j++)
+                    {
+                        if (f.Fi[i, j].Flag)
+                            desk[i + f.Position.I, j + f.Position.J] = f.Fi[i, j];
+                    }
+                }
+                pictureBox1.Invalidate();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            int k = pictureBox1.Width / 10;
+            g.Clear(Color.WhiteSmoke);
+            for (int i = 0; i < desk.GetLength(0); i++)
+                for (int j = 0; j < desk.GetLength(1); j++)
+                    g.FillRectangle(new SolidBrush(desk[i, j].Color), i * k + 1, j * k + 1, k - 2, k - 2);
+        }
+
+        private void pictureBox2_Paint(object sender, PaintEventArgs e)
+        {
+            if (ProcessGame)
+            {
+                Graphics g = e.Graphics;
+                int k = pictureBox1.Width / 10;
+                g.Clear(Color.White);
+                g.DrawString("Следующая фигура:", new Font("Times New Roman", 14, FontStyle.Italic), new SolidBrush(Color.Black), 10, 10);
+                for (int i = 0; i < fNext.Fi.GetLength(0); i++)
+                    for (int j = 0; j < fNext.Fi.GetLength(1); j++)
+                        g.FillRectangle(new SolidBrush(fNext.Fi[i, j].Color), 40 + (i + 1) * k + 1, 40 + (j + 1) * k + 1, k - 2, k - 2);
+            }
+        }
     }
 }
