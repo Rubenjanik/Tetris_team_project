@@ -1388,5 +1388,15 @@ namespace _Tetrs_
                         g.FillRectangle(new SolidBrush(fNext.Fi[i, j].Color), 40 + (i + 1) * k + 1, 40 + (j + 1) * k + 1, k - 2, k - 2);
             }
         }
+
+        void KeyY()
+        {
+            timer1.Enabled = !timer1.Enabled;
+        }
+
+        void KeyEsc()
+        {
+            timer1.Stop();
+        }
     }
 }
