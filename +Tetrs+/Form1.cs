@@ -179,5 +179,1012 @@ namespace _Tetrs_
             }
             sw.Close();
         }
+        bool MoveDown()
+        {
+            bool con = false;
+
+            if (f is _1)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 16 || desk[f.Position.I, f.Position.J + 4].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 19 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 3, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+
+            if (f is _2)
+            {
+                if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                    con = false;
+                else con = true;
+                if (con)
+                {
+                    desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty;
+                }
+            }
+
+            if (f is _3)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+
+            if (f is _4)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _5)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _6)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _7)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+
+            if (con)
+            {
+                f.PositionJ++;
+            }
+
+            return con;
+        }
+
+        bool MoveDown(int e)
+        {
+            {
+                bool con = false;
+
+                if (f is _1)
+                {
+                    if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 16 || desk[f.Position.I, f.Position.J + 4].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 19 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                if (f is _2)
+                {
+                    if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                }
+
+                if (f is _3)
+                {
+                    if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                if (f is _4)
+                {
+                    if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                if (f is _5)
+                {
+                    if (f.Location == FigureLocation.Up)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                if (f is _6)
+                {
+                    if (f.Location == FigureLocation.Up)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                if (f is _7)
+                {
+                    if (f.Location == FigureLocation.Up)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 3].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Right)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Down)
+                    {
+                        if (f.Position.J == 17 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                    if (f.Location == FigureLocation.Left)
+                    {
+                        if (f.Position.J == 18 || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                            con = false;
+                        else con = true;
+                    }
+                }
+                return con;
+            }
+        }
+
+        void Turn()
+        {
+            bool con = false;
+
+            if (f is _1)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 3, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I, f.Position.J + 3] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 16 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 3, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _2)
+            {
+                con = true;
+            }
+            if (f is _3)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _4)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _5)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _6)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _7)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.J > 17 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (con)
+                f = f.NextLocation();
+        }
+
+        void MoveLeft()
+        {
+            bool con = false;
+
+            if (f is _1)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I - 1, f.Position.J + 2].Flag || desk[f.Position.I - 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I, f.Position.J + 3] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right || f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 3, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _2)
+            {
+                if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag)
+                    con = false;
+                else con = true;
+                if (con)
+                {
+                    desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                }
+            }
+            if (f is _3)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _4)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I - 1, f.Position.J + 2].Flag || desk[f.Position.I, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left || f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _5)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I - 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _6)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J + 2].Flag || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I - 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _7)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I - 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I - 1, f.Position.J].Flag || desk[f.Position.I, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 2, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag || desk[f.Position.I, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I < 1 || desk[f.Position.I, f.Position.J].Flag || desk[f.Position.I - 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (con)
+                f.PositionI--;
+        }
+
+        void MoveRight()
+        {
+            bool con = false;
+
+            if (f is _1)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 8 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag || desk[f.Position.I + 1, f.Position.J + 3].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty; desk[f.Position.I, f.Position.J + 3] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right || f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 5 || desk[f.Position.I + 4, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _2)
+            {
+                if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                    con = false;
+                else con = true;
+                if (con)
+                {
+                    desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                }
+            }
+            if (f is _3)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right || f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _4)
+            {
+                if (f.Location == FigureLocation.Up || f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right || f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _5)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 2, f.Position.J] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _6)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 1, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 2, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (f is _7)
+            {
+                if (f.Location == FigureLocation.Up)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 1, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 1, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Right)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 3, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I, f.Position.J] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Down)
+                {
+                    if (f.Position.I > 7 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 2, f.Position.J + 1].Flag || desk[f.Position.I + 2, f.Position.J + 2].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty; desk[f.Position.I + 1, f.Position.J + 2] = Square.Empty;
+                    }
+                }
+                if (f.Location == FigureLocation.Left)
+                {
+                    if (f.Position.I > 6 || desk[f.Position.I + 2, f.Position.J].Flag || desk[f.Position.I + 3, f.Position.J + 1].Flag)
+                        con = false;
+                    else con = true;
+                    if (con)
+                    {
+                        desk[f.Position.I + 1, f.Position.J] = Square.Empty; desk[f.Position.I, f.Position.J + 1] = Square.Empty;
+                    }
+                }
+            }
+            if (con)
+                f.PositionI++;
+        }
     }
 }
